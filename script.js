@@ -1,199 +1,82 @@
-let easy_equations = [
-    "4 + 6 = ?",
-    "5 + 6 = ?",
-    "12 + 7 = ?",
-    "9 + 6 = ?",
-    "22 + 18 = ?",
-    "12 + 81 = ?",
-    "18 + 44 = ?",
-    "17 + 52 = ?",
-    "32 + 8 = ?",
-    "44 + 6 = ?",
-    "69 + 22 = ?",
-    "44 + 19 = ?",
-    "25 + 15 = ?",
-    "8 + 13 = ?",
-    "37 + 48 = ?",
-    "63 + 17 = ?",
-    "10 + 20 = ?",
-    "15 + 25 = ?",
-    "28 + 32 = ?",
-    "50 + 10 = ?",
-    "91 + 19 = ?",
-    "10 - 4 = ?",
-    "15 - 8 = ?",
-    "25 - 12 = ?",
-    "18 - 9 = ?",
-    "30 - 15 = ?",
-    "47 - 23 = ?",
-    "32 - 18 = ?",
-    "40 - 19 = ?",
-    "50 - 25 = ?",
-    "28 - 14 = ?",
-    "55 - 28 = ?",
-    "63 - 35 = ?",
-    "40 - 30 = ?",
-    "17 - 9 = ?",
-    "22 - 11 = ?",
-    "60 - 45 = ?",
-    "72 - 36 = ?",
-    "90 - 42 = ?",
-    "80 - 50 = ?",
-    "68 - 34 = ?",
-    "2 * 3 = ?",
-    "4 * 5 = ?",
-    "6 * 7 = ?",
-    "8 * 9 = ?",
-    "10 * 11 = ?",
-    "12 * 13 = ?",
-    "14 * 15 = ?",
-    "16 * 17 = ?",
-    "18 * 19 = ?",
-    "20 * 21 = ?",
-    "22 * 23 = ?",
-    "24 * 25 = ?",
-    "26 * 27 = ?",
-    "28 * 29 = ?",
-    "30 * 31 = ?",
-    "32 * 33 = ?",
-    "34 * 35 = ?",
-    "36 * 37 = ?",
-    "38 * 39 = ?",
-    "40 * 41 = ?",
-    "6 / 2 = ?",
-    "10 / 5 = ?",
-    "15 / 3 = ?",
-    "18 / 6 = ?",
-    "24 / 4 = ?",
-    "35 / 7 = ?",
-    "42 / 6 = ?",
-    "49 / 7 = ?",
-    "60 / 10 = ?",
-    "63 / 9 = ?",
-    "75 / 15 = ?",
-    "80 / 8 = ?",
-    "99 / 11 = ?",
-    "100 / 20 = ?",
-    "120 / 12 = ?",
-    "144 / 16 = ?",
-    "160 / 20 = ?",
-    "175 / 25 = ?",
-    "200 / 40 = ?",
-    "225 / 15 = ?",
-];
-let easy_ans = [
-    "4 + 6 = 10",
-    "5 + 6 = 11",
-    "12 + 7 = 19",
-    "9 + 6 = 15",
-    "22 + 18 = 40",
-    "12 + 81 = 93",
-    "18 + 44 = 62",
-    "17 + 52 = 69",
-    "32 + 8 = 40",
-    "44 + 6 = 50",
-    "69 + 22 = 91",
-    "44 + 19 = 63",
-    "25 + 15 = 40",
-    "8 + 13 = 21",
-    "37 + 48 = 85",
-    "63 + 17 = 80",
-    "10 + 20 = 30",
-    "15 + 25 = 40",
-    "28 + 32 = 60",
-    "50 + 10 = 60",
-    "91 + 19 = 110",
-    "10 - 4 = 6",
-    "15 - 8 = 7",
-    "25 - 12 = 13",
-    "18 - 9 = 9",
-    "30 - 15 = 15",
-    "47 - 23 = 24",
-    "32 - 18 = 14",
-    "40 - 19 = 21",
-    "50 - 25 = 25",
-    "28 - 14 = 14",
-    "55 - 28 = 27",
-    "63 - 35 = 28",
-    "40 - 30 = 10",
-    "17 - 9 = 8",
-    "22 - 11 = 11",
-    "60 - 45 = 15",
-    "72 - 36 = 36",
-    "90 - 42 = 48",
-    "80 - 50 = 30",
-    "68 - 34 = 34",
-    "2 * 3 = 6",
-    "4 * 5 = 20",
-    "6 * 7 = 42",
-    "8 * 9 = 72",
-    "10 * 11 = 110",
-    "12 * 13 = 156",
-    "14 * 15 = 210",
-    "16 * 17 = 272",
-    "18 * 19 = 342",
-    "20 * 21 = 420",
-    "22 * 23 = 506",
-    "24 * 25 = 600",
-    "26 * 27 = 702",
-    "28 * 29 = 812",
-    "30 * 31 = 930",
-    "32 * 33 = 1056",
-    "34 * 35 = 1190",
-    "36 * 37 = 1332",
-    "38 * 39 = 1482",
-    "40 * 41 = 1640",
-    "6 / 2 = 3",
-    "10 / 5 = 2",
-    "15 / 3 = 5",
-    "18 / 6 = 3",
-    "24 / 4 = 6",
-    "35 / 7 = 5",
-    "42 / 6 = 7",
-    "49 / 7 = 7",
-    "60 / 10 = 6",
-    "63 / 9 = 7",
-    "75 / 15 = 5",
-    "80 / 8 = 10",
-    "99 / 11 = 9",
-    "100 / 20 = 5",
-    "120 / 12 = 10",
-    "144 / 16 = 9",
-    "160 / 20 = 8",
-    "175 / 25 = 7",
-    "200 / 40 = 5",
-    "225 / 15 = 15",
-];
+let score = 0;
+let steps = 0;
+let time = 0;
+let scoreChange = 1;
 let eqn = "";
 let ans = "";
-function generate() {
-    let random = Math.floor(Math.random() * easy_ans.length)
-    eqn = easy_equations[random]
-    ans = easy_ans[random]
-    $('#equation').html(eqn.replace('?', '<input type="number" autofocus id="userInput">'));
+let randomIndex = 0;
+let type = "";
+let start = false;
+
+function generateEquation(equations, answers) {
+    type = easyEquations;
+    randomIndex = Math.floor(Math.random() * equations.length);
+    eqn = equations[randomIndex];
+    ans = answers[randomIndex];
+    $('#equation').html(eqn.replace('?', '<input type="number" id="userInput">'));
     $('#res').html(eqn.replace('?', '<span id="result"></span>'));
+    $('#userInput').focus();
     $('#userInput').on('keyup', function() {
         let val = $(this).val();
-        $('#result').html(val)
-        if(val!='') {
-            $('#submit').removeClass('hidden');
+        $('#result').html(val);
+        $('#submit').toggleClass('hidden', val === '');
+        if (!start) {
+            start = true;
+            startTime();
         }
-        else{
-            $('#submit').addClass('hidden');
-        }
-    })
+    });
+    renderScore();
+    renderSteps();
 }
+
+function checkAns(data) {
+    if (data == ans) {
+        score += scoreChange;
+    } else {
+        score -= scoreChange;
+    }
+    steps++;
+    removeEquation();
+    if (steps < 5) {
+        generateEquation(easyEquations, easyAnswers);
+    } else {
+        generateEquation(mediumEquations, mediumAnswers);
+    }
+}
+
+function renderScore() {
+    $('#score').html(score);
+}
+
+function renderSteps() {
+    $('#steps').html(steps);
+}
+
+function startTime() {
+    if (start) {
+        setInterval(() => {
+            $('#time').html(time);
+            time++;
+        }, 1000);
+    }
+}
+
+function removeEquation() {
+    if (type === "easyEquations") {
+        easyEquations.splice(randomIndex, 1);
+        easyAnswers.splice(randomIndex, 1);
+    } else if (type === "mediumEquations") {
+        mediumEquations.splice(randomIndex, 1);
+        mediumAnswers.splice(randomIndex, 1);
+    }
+}
+
+
+
 $('#submit').on('click', function() {
     $('#submit').addClass('hidden');
     let data = $('#res').text();
-    console.log(data)
-    console.log(ans)
-    if(data == ans) {
-        console.log("Yes")
-    }
-    else {
-        console.log("No");
-    }
-    generate();
-})
-generate();
+    checkAns(data);
+});
+
+generateEquation(easyEquations, easyAnswers);
