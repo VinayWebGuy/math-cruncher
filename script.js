@@ -6,10 +6,12 @@ let eqn = "";
 let ans = "";
 let randomIndex = 0;
 let type = "";
+let ans_type;
 let start = false;
 
 function generateEquation(equations, answers) {
-    type = easyEquations;
+    type = equations;
+    ans_type = answers;
     randomIndex = Math.floor(Math.random() * equations.length);
     eqn = equations[randomIndex];
     ans = answers[randomIndex];
@@ -37,10 +39,13 @@ function checkAns(data) {
     }
     steps++;
     removeEquation();
-    if (steps < 5) {
+    if (steps < 15) {
         generateEquation(easyEquations, easyAnswers);
-    } else {
+    } else if(steps < 25) {
         generateEquation(mediumEquations, mediumAnswers);
+    }
+    else if (steps < 35) {
+        generateEquation(hardEquations, hardAnswers);
     }
 }
 
@@ -62,13 +67,8 @@ function startTime() {
 }
 
 function removeEquation() {
-    if (type === "easyEquations") {
-        easyEquations.splice(randomIndex, 1);
-        easyAnswers.splice(randomIndex, 1);
-    } else if (type === "mediumEquations") {
-        mediumEquations.splice(randomIndex, 1);
-        mediumAnswers.splice(randomIndex, 1);
-    }
+        type.splice(randomIndex, 1);
+        ans_type.splice(randomIndex, 1);
 }
 
 
@@ -77,6 +77,8 @@ $('#submit').on('click', function() {
     $('#submit').addClass('hidden');
     let data = $('#res').text();
     checkAns(data);
+
+    console.log(type);
 });
 
 generateEquation(easyEquations, easyAnswers);
