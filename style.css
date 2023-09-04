@@ -62,6 +62,7 @@ button {
     color: #fff;
     outline: none;
     cursor: pointer;
+    font-family: Signika;
 }
 button.hidden {
     display: none;
@@ -76,4 +77,20 @@ button.hidden {
     justify-content: space-between;
     padding: 20px 50px;
     font-size: 1.4rem;
+}
+
+.results{
+    font-size: 2rem;
+    display: none;
+    margin-top: 120px;
+    text-align: center;
+}
+.results p {
+    color: darkviolet;
+}
+.results ul {
+    list-style: none;
+}
+.results.show{
+    display: block;
 }
